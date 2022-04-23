@@ -36,8 +36,9 @@ def makeMove(board, letter, move):
     board[move] = letter
 
 
-def isWinner(bo, le):   # учитывая заполнение игрового поля и буквы игрока, эта функция возвращвет True если игрок выиграл
-                        # Мы используем "bo" вместо board и "le" вместо letter, что бы не печатать много
+def isWinner(bo,
+             le):  # учитывая заполнение игрового поля и буквы игрока, эта функция возвращвет True если игрок выиграл
+    # Мы используем "bo" вместо board и "le" вместо letter, что бы не печатать много
     return ((bo[7] == le and bo[8] == le and bo[9] == le) or  # across the top
             (bo[4] == le and bo[5] == le and bo[6] == le) or  # через центр
             (bo[1] == le and bo[2] == le and bo[3] == le) or  # через низ
@@ -47,6 +48,7 @@ def isWinner(bo, le):   # учитывая заполнение игрового
             (bo[7] == le and bo[5] == le and bo[3] == le) or  # по диагонали
             (bo[9] == le and bo[5] == le and bo[1] == le))  # по диагонали
 
+
 def getBoardCopy(board):
     # создаёт копию игрового поля и возвращает его
     boardCopy = []
@@ -54,9 +56,11 @@ def getBoardCopy(board):
         boardCopy.append(i)
     return boardCopy
 
+
 def isSpaceFree(board, move):
     # возвращает True, если сделан ход в свободную клетку
     return board[move] == ' '
+
 
 def PlayerMove(board):
     # разрешение игроку сделать ход
@@ -65,6 +69,7 @@ def PlayerMove(board):
         print('Ваш следующий ход? (1-9)')
         move = input()
     return int(move)
+
 
 def choseRandomMoveFromList(board, movesList):
     # возвращает допустимый ход, учитывая список сделанных ходов и список заполненных клеток
@@ -115,6 +120,7 @@ def getComputerMove(board, computerLetter):
 
     # делаем ход по одной стороне
     return choseRandomMoveFromList(board, [2, 4, 6, 8])
+
 
 def isBoardFull(board):
     # возвращает True, если клетка на игровом поле занята. В противном случае, возвращает False
