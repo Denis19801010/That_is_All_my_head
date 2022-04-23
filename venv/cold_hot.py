@@ -3,16 +3,18 @@ import random
 NUM_DIGITS = 3  # количество цифр в числе
 MAX_GUESS = 10  # количество попыток
 
-def getSecretNum():
+
+def getSecretNum():  # функция генерирует секретное число с неповторяющимися цифрами
     # возвращает строку уникальных случайных цифр, длинна которой составляет NUM_DIGITS
     numbers = list(range(10))
-    random.shuffle(numbers)
-    secretNum = ''
+    random.shuffle(numbers)  # случайным образом меняет порядок элементов( цифр)
+    secretNum = ''  # получение секретного числа
     for i in range(NUM_DIGITS):
         secretNum += str(numbers[i])
     return secretNum
 
-def getClues(guess, secretNum):
+
+def getClues(guess, secretNum):  # подсчет выдаваемых подсказок
     # возвращает строку с подсказками пользователю 'Тепло', 'Горячо', 'Холодно'.
     if guess == secretNum:
         return 'Вы угадали!'
@@ -29,9 +31,10 @@ def getClues(guess, secretNum):
     clues.sort()
     return ' '.join(clues)
 
+
 def isOnlyDigits(num):
     # Возвращает значение True если num - cтрока, состоящая только из цифр. В противном случае возвращает False
-    if num =='':
+    if num == '':
         return False
 
     for i in num:
@@ -50,7 +53,7 @@ print('Горячо                     Одна цифра и её позици
 
 while True:
     secretNum = getSecretNum()
-    print('Я загадал число. У тебя есть %s попыток, чтобы отгадать его.' %(MAX_GUESS))
+    print('Я загадал число. У тебя есть %s попыток, чтобы отгадать его.' % (MAX_GUESS))
 
     guessesTaken = 1
     while guessesTaken <= MAX_GUESS:
@@ -60,7 +63,7 @@ while True:
             guess = input()
 
         print(getClues(guess, secretNum))
-        guessesTaken +=1
+        guessesTaken += 1
 
         if guess == secretNum:
             break
