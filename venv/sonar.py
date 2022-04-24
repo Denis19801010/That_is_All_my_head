@@ -171,7 +171,40 @@ while True:
     previousMoves = []
 
     while sonarDevices > 0:
-        # показать гидролокаторные устройства и сундуки с сокровищами.
-    print('Осталось гидролокаторов: %s. Осталось сундуков с сокровищами: %s' % (sonarDevices, len(theChests)))
+# показать гидролокаторные устройства и сундуки с сокровищами.
+        print('Осталось гидролокаторов: %s. Осталось сундуков с сокровищами: %s' % (sonarDevices, len(theChests)))
+
+        x, y = enterPlayerMove(previousMoves)
+        previousMoves.append([x, y]) #  мы должны отслеживать все ходы, что бы гидролокаторы могли обновляться.
+
+        moveResult = makeMove(theBoard, theChests, x, y)
+        if moveResult == False:
+            continue
+        else:
+            if moveResult == 'Вы нашли сундук с сокровищами на затонувшем корабле!':
+# обновить все гидролокационные устройства, в настоящее время нходящиеся на карте.
+                for x, y in previousMoves:
+                    makeMove(theBoard, theChests, x, y)
+            drawBoard(theBoard)
+            print(moveResult)
+
+        if len(theChests) == 0:
+            print('Вы нашли все сундуки с сокровищами на затонувших судах! Поздравляем и хватит фигнёй заниматься'
+                      'иди работай')
+            break
+        sonarDevices -= 1
+
+    if sonarDevices == 0:
+        print('Все гидролокаторы закончились, придется разворачивать корабли и валить за новыми')
+        print('ГАМЕОВЕР!')
+        print('Ты не нашел сундуки, а они были тут и там:')
+        for x, y in theChests:
+            print(' %s, %s' %(x, y))
+    print('Хочется ещё разик сыграть?(да или нет?')
+    if not input().lower().startswith('д'):
+        sys.exit()
+
+
+
 
 
