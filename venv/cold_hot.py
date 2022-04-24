@@ -29,7 +29,7 @@ def getClues(guess, secretNum):  # подсчет выдаваемых подс�
         return 'Холодно '
 
     clues.sort()
-    return ' '.join(clues)
+    return ' '.join(clues) # ПРИМЕР: было ['Меня 'Зовут 'Вася'], cтало ['Меня Зовут Вася']
 
 
 def isOnlyDigits(num):
