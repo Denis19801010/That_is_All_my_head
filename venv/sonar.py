@@ -16,3 +16,12 @@ def getNewBoard():
             else:
                     board[x].append('`')
     return board
+
+def drawBoard(board):
+    # изобразить структуру данных игрового поля
+tensDigitsLine = ' ' # создать место для чисел вниз по левой стороне поля
+    for i in range(1, 6):
+        tensDigitsLine += (' ' * 9) + str(i)
+
+        # вывести
+
