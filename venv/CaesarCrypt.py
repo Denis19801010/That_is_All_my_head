@@ -29,5 +29,28 @@ def getTranslatedMessage(made, message, key):
     translated = ''
 
     for sybol in message:
+        symbolIndex = SYMBOLS.find(symbol)
+        if symbolIndex == -1: # Символ не найден в SYMBOLS
+            #  просто добавить этот символ без изменений
+            translated += symbol
+        else:
+            #  зашифровать или расшифровать
+            symbolIndex += key
+
+            if symbolIndex >= len(SYMBOLS):
+                symbolIndex -= len(SYMBOLS)
+            elif symbolIndex < 0:
+                symbolIndex += len(SYMBOLS)
+
+            translatd += SYMBOLS(symbolIndex)
+    return translated
+
+mode = getMode()
+message = getMessage()
+key = getKey()
+print('Преобразованный текст: ')
+print(getTranslatedMessage(mode, message, key))
+
+
 
 
