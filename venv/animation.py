@@ -1,5 +1,5 @@
 import pygame, sys, time
-from pygame.licals import *
+from pygame.locals import *
 
 # установка pygame
 pygame.init()
@@ -16,7 +16,7 @@ DOWNRIGHT = 'downright'
 UPLEFT = 'upleft'
 UPRIGHT = 'upright'
 
-MOVESSPEED = 4
+MOVESSPEED = 3
 
 # настройка цвета
 WHITE = (255, 255, 255)
@@ -57,11 +57,11 @@ while True:
             b['rect'].top -= MOVESSPEED
 
         # проверка преместился ли блок за пределы окна
-        if b [rect].top < 0:
+        if b['rect'].top < 0:
             # прохождение блока через верхнюю границу
             if b['dir'] == UPLEFT:
                 b['dir'] = DOWNLEFT
-            if b['deir'] == UPRIGHT:
+            if b['dir'] == UPRIGHT:
                 b['dir'] = DOWNRIGHT
         if b['rect'].bottom > WINDOWWHEIGHT:
             # прохождение блока через нижнюю границу
@@ -88,38 +88,3 @@ while True:
     # вывод окна на экран
     pygame.display.update()
     time.sleep(0.02)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
