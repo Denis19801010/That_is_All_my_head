@@ -16,19 +16,21 @@ DOWNRIGHT = 'downright'
 UPLEFT = 'upleft'
 UPRIGHT = 'upright'
 
-MOVESSPEED = 3
+MOVESSPEED = 4
 
 # настройка цвета
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 255)
 BLUE  = (0, 0, 255)
+ANYONE= (22, 156, 54)
 
 # создание структуры данных блоков
 b1 = {'rect':pygame.Rect(300, 80, 50, 100), 'color':RED, 'dir':UPRIGHT}
 b2 = {'rect':pygame.Rect(200, 200, 20, 20), 'color':GREEN, 'dir':UPLEFT}
 b3 = {'rect':pygame.Rect(100, 150, 60, 60), 'color':BLUE, 'dir':DOWNLEFT}
-boxes = [b1, b2, b3]
+b4 = {'rect':pygame.Rect(18, 15, 160, 6), 'color':ANYONE, 'dir':DOWNRIGHT}
+boxes = [b1, b2, b3, b4]
 
 # запуск игрового цикла
 while True:
@@ -38,7 +40,7 @@ while True:
             pygame.quit()
             sys.exit()
 
-    # создание поверхности белого фона
+    # создание поверхности белого фона( что бы не было следов объектов)
     windowSurface.fill(WHITE)
 
     for b in boxes:
@@ -47,7 +49,7 @@ while True:
             b['rect'].left -= MOVESSPEED
             b['rect'].top += MOVESSPEED
         if b['dir'] == DOWNRIGHT:
-            b['rect'].left -= MOVESSPEED
+            b['rect'].left += MOVESSPEED
             b['rect'].top += MOVESSPEED
         if b['dir'] == UPLEFT:
             b['rect'].left -= MOVESSPEED
