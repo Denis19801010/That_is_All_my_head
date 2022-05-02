@@ -36,8 +36,8 @@ MOVESPEED = 6
 
 # настройка музыки
 pickUpSound = pygame.mixer.Sound('pickup.mp3')
-pygame.mixer.music.load('background.mp3')
-pygame.mixer.music.play(-1, 0.0)
+# pygame.mixer.music.load('background.mp3')
+# pygame.mixer.music.play(-1, 0.0)
 musicPlaying = True
 
 # запуск игрового цикла
