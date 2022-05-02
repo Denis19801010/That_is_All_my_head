@@ -104,10 +104,10 @@ while True:
             if event.type == KEYUP:
                 if event.key == K_z:
                     reverseCheat = False
-                    score = 0
+                    score = 0   # сбрасывает очки до 0, что бы не привыкать пользоваться читами
                 if event.key == K_x:
                     slowCheat = False
-                    score = 0
+                    score = 0  # сбрасывает очки до 0, что бы не привыкать пользоваться читами
                 if event.key == K_ESCAPE:
                         terminate()
 
