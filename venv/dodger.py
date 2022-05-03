@@ -121,7 +121,7 @@ while True:
                     moveDown = False
 
             if event.type == MOUSEMOTION:
-                # если мышь движется, перенести игрока к указателю мыши
+                # если мышь движется, перенести игрока к указателю мыши(управление игрой с помощью мышки)
                 playerRect.centerx = event.pos[0]
                 playerRect.centery = event.pos[1]
         # если необходимо добавить новых злодеев в верхнюю часть экрана
